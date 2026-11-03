@@ -57,7 +57,26 @@ else
 fi
 echo "...Done"
 
-# 3: Neovim
+# 3.0: pyenv
+echo "[Check] pyenv... (3/7)"
+if !(type "pyenv" > /dev/null 2>&1); then
+    echo "[INSTALL]: Start installing pyenv (2/7)"
+    brew install pyenv
+    echo "...Done"
+else
+    echo "pyenv has already been installed."
+fi
+
+echo "[Check Again] pyenv... (2/7)"
+if !(type "pyenv" > /dev/null 2>&1); then
+    echo "... pyenv is still not installed... Stop."
+    exit32
+else
+    echo "...OK"
+fi
+echo "...Done"
+
+# 3.1: Neovim
 if !(type "nvim" > /dev/null 2>&1); then
     echo "[INSTALL]: Start installing neovim (3/7)"
     brew update
@@ -187,6 +206,44 @@ echo "[Check Again] go... (8/8)"
 if !(type "go" > /dev/null 2>&1); then
     echo "... go is still not installed... Stop."
     exit 8
+else
+    echo "...OK"
+fi
+echo "...Done"
+
+# 9: qemu
+## For the check whether qemu is installed or not, 
+## we use qemu-system-x86_64 as a representation command
+if !(type "qemu-system-x86_64" > /dev/null 2>&1); then
+    echo "[INSTALL]: Start installing qemu (6/7)"
+    brew install qemu
+    echo "...Done"
+else
+    echo "qemu has already been installed."
+fi
+
+echo "[Check Again] qemu... (6/7)"
+if !(type "qemu-system-x86_64" > /dev/null 2>&1); then
+    echo "... qemu is still not installed... Stop."
+    exit 6
+else
+    echo "...OK"
+fi
+echo "...Done"
+
+#10: clang-format
+if !(type "clang-format" > /dev/null 2>&1); then
+    echo "[INSTALL]: Start installing clang-format (10/10)"
+    brew install clang-format
+    echo "...Done"
+else
+    echo "clang-format has already been installed."
+fi
+
+echo "[Check Again] clang-format... (6/7)"
+if !(type "clang-format" > /dev/null 2>&1); then
+    echo "... clang-format is still not installed... Stop."
+    exit 6
 else
     echo "...OK"
 fi
