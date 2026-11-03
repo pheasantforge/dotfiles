@@ -7,4 +7,7 @@ eval "$(pyenv init -)"
 #export GOPATH=$(go env GOPATH)
 #export PATH=$PATH:$(go env GOPATH)/bin
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.cache/lm-studio/bin"
