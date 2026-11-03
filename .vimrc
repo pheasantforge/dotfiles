@@ -292,4 +292,7 @@ noremap gk k
 noremap ; :
 noremap : ;
 
-
+"""""""""""""""""""""
+" python            "
+"""""""""""""""""""""
+let g:python3_host_prog = stdpath('data') . '/python3/bin/python'
