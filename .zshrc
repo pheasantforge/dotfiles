@@ -10,6 +10,16 @@ export PATH=$PATH:$HOME/.nodebrew/current/bin
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+export PATH=$PATH:$HOME/Flutter/flutter/bin
+export PATH=$PATH:/opt/homebrew/opt/openjdk@17/bin
+export PATH=$PATH:/usr/local/share/dotnet
+
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+export LSCOLORS="ExFxcxdxBxegedabagacad"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -29,3 +39,15 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
+
+eval "$(pyenv init -)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.cache/lm-studio/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
